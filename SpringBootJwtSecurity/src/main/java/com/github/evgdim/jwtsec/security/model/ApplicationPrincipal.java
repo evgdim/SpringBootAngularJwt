@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class JwtPrincipal {
+public class ApplicationPrincipal {
 	private String username;
 	private Claims claims;//TODO replace it with domain object
 }
