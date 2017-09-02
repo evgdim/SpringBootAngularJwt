@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.evgdim.jwtsec.model.User;
+import com.github.evgdim.jwtsec.model.vo.Token;
 import com.github.evgdim.jwtsec.repository.UserRepository;
 import com.github.evgdim.jwtsec.security.model.UserLoginVO;
 import com.github.evgdim.jwtsec.security.utils.TokenUtils;
@@ -31,10 +32,10 @@ public class UserController {
 	}
 	
 	@PostMapping("token")
-	public ResponseEntity<String> generateToken(@RequestBody UserLoginVO login){
+	public ResponseEntity<?> generateToken(@RequestBody UserLoginVO login){
 		Optional<User> user = userRepo.findByUsernameAndPassword(login.getUsername(), login.getPassword());
 		if(user.isPresent()) {
-			return ResponseEntity.ok(TokenUtils.generateToken(login));			
+			return ResponseEntity.ok(new Token(TokenUtils.generateToken(login)));			
 		} else {
 			return ResponseEntity.badRequest().body("Invalid credentials");
 		}
