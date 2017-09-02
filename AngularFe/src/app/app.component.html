@@ -1,8 +1,15 @@
-<h1>Angular Router</h1>
-<nav>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/overview" routerLinkActive="active">Overview</a>
-</nav>
-<router-outlet></router-outlet>
-
+<section class="section">
+  <div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://bulma.io">
+          <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        </a>
+        <a routerLink="/login" routerLinkActive="active" class="navbar-item">Login</a>
+        <a routerLink="/home" routerLinkActive="active" class="navbar-item">Home</a>
+        <a routerLink="/overview" routerLinkActive="active" class="navbar-item">Overview</a>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</section>
