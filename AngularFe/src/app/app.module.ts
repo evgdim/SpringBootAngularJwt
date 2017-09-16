@@ -32,9 +32,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    StoreModule.forRoot({
-      loginReducer: loginReducer
-    })
+    StoreModule.provideStore({loginReducer})
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
