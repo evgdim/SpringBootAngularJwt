@@ -11,6 +11,8 @@ import { OverviewComponent } from './containers/overview/overview.component';
 import { AuthenticationService } from './services/authentication.service';
 import { StoreModule } from '@ngrx/store';
 import { loginReducer } from './state-management/login-reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './state-management/effects/login.effect';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    StoreModule.provideStore({loginReducer})
+    StoreModule.provideStore({loginReducer}),
+    EffectsModule.run(AuthEffects)
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
