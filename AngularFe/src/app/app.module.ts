@@ -9,6 +9,8 @@ import { HomeComponent } from './containers/home/home.component';
 import { LoginComponent } from './containers/login/login.component';
 import { OverviewComponent } from './containers/overview/overview.component';
 import { AuthenticationService } from './services/authentication.service';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from './state-management/login-reducer';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -29,7 +31,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.forRoot({
+      loginReducer: loginReducer
+    })
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
