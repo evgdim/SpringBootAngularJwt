@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { OverviewComponent } from './overview/overview.component';
-import { AuthenticationService } from './authentication.service';
+import { HomeComponent } from './containers/home/home.component';
+import { LoginComponent } from './containers/login/login.component';
+import { OverviewComponent } from './containers/overview/overview.component';
+import { AuthenticationService } from './services/authentication.service';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
