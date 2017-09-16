@@ -7,7 +7,7 @@ export function loginReducer(state = initialLoginState, action: LoginAction) {
     switch (action.type) {
         case LOGIN_ATEMPT: {
             console.log('login attempt', action);
-            return {status: LoginStatus.LOGIN_REQ_SENT, message: '' };
+            return {status: LoginStatus.LOGIN_ERROR, message: '' };
         }
         case LOGIN_ERROR: {
             return {status: LoginStatus.LOGIN_ERROR, message: '' };

@@ -14,6 +14,7 @@ import { LOGIN_ATEMPT } from '../../state-management/actions';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginData: any;
+  showInvalidCredentials: boolean = false;
 
   constructor(private fb: FormBuilder, private auth: AuthenticationService, private loginStore: Store<LoginState>) {
     this.loginForm = fb.group({
@@ -27,8 +28,14 @@ export class LoginComponent implements OnInit {
     this.loginStore.select('loginReducer').subscribe((s:LoginState) => {
       console.log(s);
       switch(s.status) {
-        case LoginStatus.LOGIN_REQ_SENT : {
-          console.log("Loggin...");
+        case LoginStatus.LOGIN_REQ_SENT: {
+          this.showInvalidCredentials = false;
+          break;
+        }
+        case LoginStatus.LOGIN_ERROR: {
+          console.log('asd');
+          this.showInvalidCredentials = true;
+          break;
         }
       }
     });
