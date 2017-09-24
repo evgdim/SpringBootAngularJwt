@@ -4,16 +4,13 @@ import { LoginState, initialLoginState, LoginStatus } from './login-state';
 import { LOGIN_ATEMPT, LOGIN_ERROR, LOGIN_SUCCESS} from './actions';
 
 export function loginReducer(state = initialLoginState, action: LoginAction) {
+    console.log(action);
     switch (action.type) {
-        // case LOGIN_ATEMPT: {
-        //     console.log('login attempt', action);
-        //     return {status: LoginStatus.LOGIN_ERROR, message: '' };
-        // }
         case LOGIN_ERROR: {
-            return {status: LoginStatus.LOGIN_ERROR, message: '' };
+            return {status: LoginStatus.LOGIN_ERROR, token: null };
         }
         case LOGIN_SUCCESS: {
-            return {status: LoginStatus.LOGGED_IN, message: '' };
+            return {status: LoginStatus.LOGGED_IN, token: action.payload.token };
         }
         default: {
             return state;

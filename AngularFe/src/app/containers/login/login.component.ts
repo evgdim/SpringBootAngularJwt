@@ -28,14 +28,13 @@ export class LoginComponent implements OnInit {
     this.loginStore.select('loginReducer').subscribe((s:LoginState) => {
       console.log(s);
       switch(s.status) {
-        case LoginStatus.LOGIN_REQ_SENT: {
-          this.showInvalidCredentials = false;
-          break;
-        }
         case LoginStatus.LOGIN_ERROR: {
           console.log('asd');
           this.showInvalidCredentials = true;
           break;
+        }
+        default: {
+          this.showInvalidCredentials = false;
         }
       }
     });

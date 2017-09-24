@@ -1,6 +1,6 @@
 export interface LoginState {
     status: LoginStatus;
-    message: string;
+    token: string;
 }
 
 export enum LoginStatus {
@@ -9,6 +9,6 @@ export enum LoginStatus {
 
 export const initialLoginState: LoginState = {
     status: LoginStatus.NOT_LOGGED_IN,
-    message: ''
+    token: null
 };
 
